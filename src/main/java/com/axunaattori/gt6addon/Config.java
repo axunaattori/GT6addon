@@ -1,4 +1,4 @@
-package com.myname.mymodid;
+package com.axunaattori.gt6addon;
 
 import java.io.File;
 
