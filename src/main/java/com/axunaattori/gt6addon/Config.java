@@ -6,12 +6,12 @@ import net.minecraftforge.common.config.Configuration;
 
 public class Config {
 
-    public static String greeting = "Hello World";
+    public static int MaterialID = 32000;
 
     public static void synchronizeConfiguration(File configFile) {
         Configuration configuration = new Configuration(configFile);
 
-        greeting = configuration.getString("greeting", Configuration.CATEGORY_GENERAL, greeting, "How shall I greet?");
+        MaterialID = configuration.getInt("MaterialID", Configuration.CATEGORY_GENERAL, 32000, 0, 36000, "Change if you want to use it for your own stuff for some reason (there shouldn't really be a reason???)");
 
         if (configuration.hasChanged()) {
             configuration.save();

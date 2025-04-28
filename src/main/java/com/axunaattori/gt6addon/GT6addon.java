@@ -2,6 +2,8 @@ package com.axunaattori.gt6addon;
 
 import gregapi.data.CS;
 
+import com.axunaattori.gt6addon.Material.CustomMaterial;
+
 import net.minecraft.item.Item;
 import net.minecraftforge.oredict.OreDictionary;
 
@@ -21,7 +23,7 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.event.FMLServerStartingEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
 
-@Mod(modid = "gt6addon", version = "0.0", name = "GregTech 6 Addon", acceptedMinecraftVersions = "[1.7.10]")
+@Mod(modid = "gt6addon", version = "0.0", name = "GregTech 6 Addon", acceptedMinecraftVersions = "[1.7.10]", dependencies = "required-after:gregapi_post")
 public class GT6addon {
 
     public void customRegisterItem(Item item)
@@ -34,6 +36,8 @@ public class GT6addon {
 
     public static final String MODID = "gt6addon";
     public static final Logger LOG = LogManager.getLogger(MODID);
+
+    public static gregapi.code.ModData MOD_DATA = new gregapi.code.ModData(MODID, "GregTech 6 Addon");
 
     @SidedProxy(
         clientSide = "com.axunaattori.gt6addon.ClientProxy",
@@ -70,12 +74,14 @@ public class GT6addon {
         for (int i = 0; i < 10; i++) {
             OreDictionary.registerOre(CS.OD_CIRCUITS[i], circuitTier9);
         }
+        CustomMaterial.MaterialPreinit();
     }
 
     @Mod.EventHandler
     // load "Do your mod setup. Build whatever data structures you care about. Register recipes." (Remove if not needed)
     public void init(FMLInitializationEvent event) {
         proxy.init(event);
+        CustomMaterial.MaterialInit();
     }
 
     @Mod.EventHandler
