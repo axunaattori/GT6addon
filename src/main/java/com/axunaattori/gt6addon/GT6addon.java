@@ -13,6 +13,7 @@ import com.axunaattori.gt6addon.Items.CircuitTier7;
 import com.axunaattori.gt6addon.Items.CircuitTier8;
 import com.axunaattori.gt6addon.Items.CircuitTier9;
 import com.axunaattori.gt6addon.Material.CustomMaterial;
+import com.axunaattori.gt6addon.recipes.vanilla;
 
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
@@ -95,6 +96,7 @@ public class GT6addon {
         proxy.init(event);
         CustomMaterial.MaterialInit();
         GameRegistry.addSmelting(new ItemStack(unfiredClay), new ItemStack(Items.brick), 0.5f);
+        vanilla.addRecipes();
     }
 
     @Mod.EventHandler
