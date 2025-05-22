@@ -8,12 +8,9 @@ import net.minecraftforge.oredict.OreDictionary;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import com.axunaattori.gt6addon.Items.CircuitTier0;
-import com.axunaattori.gt6addon.Items.CircuitTier7;
-import com.axunaattori.gt6addon.Items.CircuitTier8;
-import com.axunaattori.gt6addon.Items.CircuitTier9;
+import com.axunaattori.gt6addon.Items.*;
 import com.axunaattori.gt6addon.Material.CustomMaterial;
-import com.axunaattori.gt6addon.recipes.vanilla;
+import com.axunaattori.gt6addon.recipes.*;
 
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
@@ -42,7 +39,7 @@ public class GT6addon {
     public static final String MODID = "gt6addon";
     public static final Logger LOG = LogManager.getLogger(MODID);
 
-    public static gregapi.code.ModData MOD_DATA = new gregapi.code.ModData(MODID, "GregTech 6 Addon");
+    public static gregapi.code.ModData MOD_DATA = new gregapi.code.ModData(MODID, "Unnamed GregTech 6 Addon");
 
     @SidedProxy(
         clientSide = "com.axunaattori.gt6addon.ClientProxy",
@@ -77,7 +74,7 @@ public class GT6addon {
         customRegisterItem(circuitTier9);
         customRegisterItem(unfiredClay);
 
-        OreDictionary.registerOre(CS.OD_CIRCUITS[0], circuitTier0);
+        OreDictionary.registerOre(CS.OD_CIRCUITS[0], circuitTier0); //there's nothing past t9 in the OD_CIRCUITS array
         for (int i = 0; i < 8; i++) {
             OreDictionary.registerOre(CS.OD_CIRCUITS[i], circuitTier7);
         }
@@ -97,6 +94,7 @@ public class GT6addon {
         CustomMaterial.MaterialInit();
         GameRegistry.addSmelting(new ItemStack(unfiredClay), new ItemStack(Items.brick), 0.5f);
         vanilla.addRecipes();
+        custom.addRecipes();
     }
 
     @Mod.EventHandler
