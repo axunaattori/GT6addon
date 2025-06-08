@@ -52,21 +52,55 @@ public class GT6addon {
     public static Item circuitTier9;
     public static Item unfiredClay;
 
+    public static Item motorPUV2;
+    public static Item motorPUV3;
+    public static Item motorPUV4;
+    public static Item motorPUV5;
+    public static Item motorXV;
+
+    public static Item pistonPUV2;
+    public static Item pistonPUV3;
+    public static Item pistonPUV4;
+    public static Item pistonPUV5;
+    public static Item pistonXV;
+
     @Mod.EventHandler
     // preInit "Run before anything else. Read your config, create blocks, items, etc, and register them with the
     // GameRegistry." (Remove if not needed)
     public void preInit(FMLPreInitializationEvent event) {
         proxy.preInit(event);
-        circuitTier0 = new CircuitTier0().setUnlocalizedName("CircuitTier0")
+        circuitTier0 = new Circuit().setUnlocalizedName("CircuitTier0")
             .setTextureName("gt6addon:CircuitTier0");
-        circuitTier7 = new CircuitTier7().setUnlocalizedName("CircuitTier7")
+        circuitTier7 = new Circuit().setUnlocalizedName("CircuitTier7")
             .setTextureName("gt6addon:CircuitTier7");
-        circuitTier8 = new CircuitTier8().setUnlocalizedName("CircuitTier8")
+        circuitTier8 = new Circuit().setUnlocalizedName("CircuitTier8")
             .setTextureName("gt6addon:CircuitTier8");
-        circuitTier9 = new CircuitTier9().setUnlocalizedName("CircuitTier9")
+        circuitTier9 = new Circuit().setUnlocalizedName("CircuitTier9")
             .setTextureName("gt6addon:CircuitTier9");
-        unfiredClay = new CircuitTier9().setUnlocalizedName("UnfiredClay")
+        unfiredClay = new Circuit().setUnlocalizedName("UnfiredClay")
             .setTextureName("gt6addon:UnfiredClay");
+
+        motorPUV2 = new Components().setUnlocalizedName("motorPUV2")
+            .setTextureName("gt6addon:motorPUV2");
+        motorPUV3 = new Components().setUnlocalizedName("motorPUV3")
+            .setTextureName("gt6addon:motorPUV3");
+        motorPUV4 = new Components().setUnlocalizedName("motorPUV4")
+            .setTextureName("gt6addon:motorPUV4");
+        motorPUV5 = new Components().setUnlocalizedName("motorPUV5")
+            .setTextureName("gt6addon:motorPUV5");
+        motorXV = new Components().setUnlocalizedName("motorXV")
+            .setTextureName("gt6addon:motorXV");
+
+        pistonPUV2 = new Components().setUnlocalizedName("pistonPUV2")
+            .setTextureName("gt6addon:pistonPUV2");
+        pistonPUV3 = new Components().setUnlocalizedName("pistonPUV3")
+            .setTextureName("gt6addon:pistonPUV3");
+        pistonPUV4 = new Components().setUnlocalizedName("pistonPUV4")
+            .setTextureName("gt6addon:pistonPUV4");
+        pistonPUV5 = new Components().setUnlocalizedName("pistonPUV5")
+            .setTextureName("gt6addon:pistonPUV5");
+        pistonXV = new Components().setUnlocalizedName("pistonXV")
+            .setTextureName("gt6addon:pistonXV");
 
         customRegisterItem(circuitTier0);
         customRegisterItem(circuitTier7);
@@ -74,7 +108,19 @@ public class GT6addon {
         customRegisterItem(circuitTier9);
         customRegisterItem(unfiredClay);
 
-        OreDictionary.registerOre(CS.OD_CIRCUITS[0], circuitTier0); //there's nothing past t9 in the OD_CIRCUITS array
+        customRegisterItem(motorPUV2);
+        customRegisterItem(motorPUV3);
+        customRegisterItem(motorPUV4);
+        customRegisterItem(motorPUV5);
+        customRegisterItem(motorXV);
+
+        customRegisterItem(pistonPUV2);
+        customRegisterItem(pistonPUV3);
+        customRegisterItem(pistonPUV4);
+        customRegisterItem(pistonPUV5);
+        customRegisterItem(pistonXV);
+
+        OreDictionary.registerOre(CS.OD_CIRCUITS[0], circuitTier0); // there's nothing past t9 in the OD_CIRCUITS array
         for (int i = 0; i < 8; i++) {
             OreDictionary.registerOre(CS.OD_CIRCUITS[i], circuitTier7);
         }

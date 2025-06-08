@@ -2,9 +2,9 @@ package com.axunaattori.gt6addon.Items;
 
 import net.minecraft.item.Item;
 
-public class CircuitTier7 extends Item {
+public class Circuit extends Item {
 
-    public CircuitTier7() {
+    public Circuit() {
 
     }
 }
