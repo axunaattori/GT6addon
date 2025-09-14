@@ -12,6 +12,7 @@ import com.axunaattori.gt6addon.Items.*;
 import com.axunaattori.gt6addon.Material.CustomMaterial;
 import com.axunaattori.gt6addon.recipes.*;
 
+import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
@@ -139,7 +140,6 @@ public class GT6addon {
         proxy.init(event);
         CustomMaterial.MaterialInit();
         GameRegistry.addSmelting(new ItemStack(unfiredClay), new ItemStack(Items.brick), 0.5f);
-        vanilla.addRecipes();
         custom.addRecipes();
     }
 
@@ -147,6 +147,9 @@ public class GT6addon {
     // postInit "Handle interaction with other mods, complete your setup based on this." (Remove if not needed)
     public void postInit(FMLPostInitializationEvent event) {
         proxy.postInit(event);
+        if (Loader.isModLoaded("gregtech")) {
+            vanilla.addRecipes();
+        }
     }
 
     @Mod.EventHandler
