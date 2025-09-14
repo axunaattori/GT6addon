@@ -14,8 +14,9 @@ public class vanilla {
         CR.delate(ST.make(Blocks.crafting_table, 1, 0));
         CR.delate(ST.make(Blocks.chest, 1, 0));
         CR.delate(ST.make(Items.ender_eye, 1, 0));
-        CR.delate(ST.make(Blocks.hopper, 1, 0));
-        CR.delate(ST.make(Blocks.piston, 1, 0));
+        CR.remove(ST.make(Blocks.hopper, 1, 0));
+        CR.remove(ST.make(Blocks.piston, 1, 0));
+        //TODO: override or remove the gt6 recipe for pistons completely.
 
         CR.delate(ST.make(Items.diamond_boots, 1, 0));
         CR.delate(ST.make(Items.diamond_leggings, 1, 0));
@@ -44,7 +45,7 @@ public class vanilla {
             OD.stickAnyWood);
         CR.shaped(
             ST.make(Blocks.ender_chest, 1, 0),
-            CR.DEF_NCC,
+            CR.DEF | CR.DEL_OTHER_RECIPES,
             "hPw",
             "RCR",
             "PPP",
@@ -56,7 +57,7 @@ public class vanilla {
             IL.Circuit_Enderium);
         CR.shaped(
             ST.make(Blocks.hopper, 1, 0),
-            CR.DEF_NCC,
+            CR.DEF | CR.DEL_OTHER_RECIPES,
             "PwP",
             "ICI",
             " Ih",
@@ -71,7 +72,7 @@ public class vanilla {
             CR.DEF_NCC,
             "PPP",
             "RFR",
-            "CPC",
+            "COC",
             'P',
             OD.plankAnyWood,
             'R',
@@ -80,7 +81,7 @@ public class vanilla {
             ST.make(Blocks.fence, 1, 0),
             'C',
             OP.cobblestone,
-            'P',
+            'O',
             IL.Electric_Piston_ULV);
         RM.Bath.addRecipe1(
             true,
